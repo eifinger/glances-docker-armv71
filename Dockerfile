@@ -20,4 +20,4 @@ WORKDIR /glances
 EXPOSE 61208 61209
 
 # Define default command.
-ENTRYPOINT ["python", "-m", "glances", "-C", "/glances/conf/glances.conf", "$GLANCES_OPT"]
+CMD python -m glances -C /glances/conf/glances.conf $GLANCES_OPT
