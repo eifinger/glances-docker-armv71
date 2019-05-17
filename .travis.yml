@@ -14,6 +14,6 @@ services:
 script:
   - TAG=$(cat VERSION)
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker build -f Dockerfile -t $DOCKER_USERNAME/$IMAGE_NAME:$TAG $DOCKER_USERNAME/$IMAGE_NAME:latest .
+  - docker build -f Dockerfile -t $DOCKER_USERNAME/$IMAGE_NAME:$TAG -t $DOCKER_USERNAME/$IMAGE_NAME:latest .
   - docker push $DOCKER_USERNAME/$IMAGE_NAME:$TAG 
   - docker push $DOCKER_USERNAME/$IMAGE_NAME:latest
