@@ -9,7 +9,7 @@ RUN apk add --no-cache --virtual .build_deps \
         linux-headers \
         && pip install 'psutil>=5.4.7,<5.5.0' bottle==0.12.13 \
         && apk del .build_deps
-RUN apk add --no-cache git && git clone -b v3.1.0 https://github.com/nicolargo/glances.git
+RUN apk add --no-cache git && git clone -b v3.1.4 https://github.com/nicolargo/glances.git
 
 RUN [ "cross-build-end" ]
 
