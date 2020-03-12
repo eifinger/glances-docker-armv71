@@ -1,4 +1,4 @@
-FROM balenalib/generic-armv7ahf-debian-python:3.8.2
+FROM balenalib/armv7hf-debian-python:3.8-build
 
 RUN [ "cross-build-start" ]
 
