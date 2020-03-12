@@ -1,15 +1,13 @@
-FROM balenalib/generic-armv7ahf-alpine-python:3.7.2
+FROM balenalib/generic-armv7ahf-debian-python:3.8.2
 
 RUN [ "cross-build-start" ]
 
-# Install Glances (develop branch)
-RUN apk add --no-cache --virtual .build_deps \
-        gcc \
-        musl-dev \
-        linux-headers \
-        && pip install 'psutil>=5.4.7,<5.5.0' bottle==0.12.13 \
-        && apk del .build_deps
-RUN apk add --no-cache git && git clone -b v3.1.4 https://github.com/nicolargo/glances.git
+# Install Glances
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		git \
+	&& pip install 'psutil>=5.7.0' bottle \
+	&& rm -rf /var/lib/apt/lists/*
+RUN  git clone -b v3.1.4 https://github.com/nicolargo/glances.git
 
 RUN [ "cross-build-end" ]
 
